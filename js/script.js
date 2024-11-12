@@ -115,21 +115,32 @@ SoccerData();
 
 const arrayVuota = [];
 const arrayPiena = [];
-const bonusVar = Bonus(arrayVuota, 0, 5);
+const bonusVar = Bonus(arrayVuota, 8,25 );
 console.log(bonusVar);
 
 function Bonus(myArray,numMin, numMax){
+    const fragment = document.createDocumentFragment();
+    const divEleBonus = document.getElementById("bonus");
     
     for(let i = 0; i<20;i++){
         arrayPiena.push(GetRandomNum());
     }
     console.log(arrayPiena);
+    let j = 0;
+    for(let i = numMin; i<= numMax; i++){     
+        if(arrayPiena.length<=i)
+            break;
+        else{
+            const pEleBonus = document.createElement("p");
+            myArray.push(arrayPiena[i]);
     
-    for(let i = numMin; i<= numMax; i++){        
-        myArray.push(arrayPiena[i]);
-        if(numMax>arrayPiena.length)
-            return;
+            pEleBonus.innerHTML = `${myArray[j]}, index of => + ${i}`;
+            fragment.appendChild(pEleBonus);
+            j++;
+        }
+  
     }
+    divEleBonus.appendChild(fragment);
     return myArray;
 }
 
