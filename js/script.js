@@ -53,25 +53,46 @@ const pagnotta={
     nome:"Pagnotta",
     puntiFatti: 0,
     falliSubiti:0,
+    RandomNum(){
+        this.puntiFatti = GetRandomNum();
+        this.falliSubiti = GetRandomNum();
+        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    }
 };
 const roma={
     nome:"Roma",
     puntiFatti: 0,
     falliSubiti:0,
+    RandomNum(){
+        this.puntiFatti = GetRandomNum();
+        this.falliSubiti = GetRandomNum();
+        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    }
 };
 const lazio={
     nome:"Lazio",
     puntiFatti: 0,
     falliSubiti:0,
+    RandomNum(){
+        this.puntiFatti = GetRandomNum();
+        this.falliSubiti = GetRandomNum();
+        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    }
 };
 const milan={
     nome:"Milan",
     puntiFatti: 0,
     falliSubiti:0,
+    RandomNum(){
+        this.puntiFatti = GetRandomNum();
+        this.falliSubiti = GetRandomNum();
+        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    }
 };
 
 const squadre=[pagnotta, roma, lazio, milan];
 
+pagnotta.RandomNum();
 
 
 
@@ -93,4 +114,9 @@ function CheckWeight() {
         }
     }
     return tempBicycle;
+}
+
+//function utilies
+function GetRandomNum(){
+    return Math.floor(Math.random() * 100 +1);
 }
