@@ -50,7 +50,6 @@ divEleBici.appendChild(pEleBiciText);
 //#endregion Snack-1
 //---------------------------SNACK 2
 //#region Snack-2
-const divEleCalcio = document.getElementById("calcio");
 //#region Objects
 const pagnotta = {
     nome: "Pagnotta",
@@ -106,33 +105,33 @@ const milan = {
 };
 //#endregion Objects
 
+const divEleCalcio = document.getElementById("calcio");
+
 const squadre = [pagnotta, roma, lazio, milan];
 const arraySquadre2ele = [];
 
 SoccerData();
-
-function SoccerData() {
-    const fragment = document.createDocumentFragment();//create a var temp to store the p ele
-    let counter = 0;
-    squadre.forEach(element => {
-        arraySquadre2ele.push(element.GetNameFalli()); //refresh and change numbers
-        const pEleCalcio = document.createElement("p");
-        pEleCalcio.style.fontSize = "2em";
-
-        pEleCalcio.innerHTML = `squadra: ${arraySquadre2ele[counter].nome}, falli subiti: ${arraySquadre2ele[counter].falliSubiti}`;
-        
-        fragment.appendChild(pEleCalcio);
-        counter++;
-    });
-    divEleCalcio.appendChild(fragment);
-    console.log(arraySquadre2ele);
-}
-
-
-
 //#endregion Snack-2
 
+const arrayVuota = [];
+const arrayPiena = [];
+const bonusVar = Bonus(arrayVuota, 0, 5);
+console.log(bonusVar);
 
+function Bonus(myArray,numMin, numMax){
+    
+    for(let i = 0; i<20;i++){
+        arrayPiena.push(GetRandomNum());
+    }
+    console.log(arrayPiena);
+    
+    for(let i = numMin; i<= numMax; i++){        
+        myArray.push(arrayPiena[i]);
+        if(numMax>arrayPiena.length)
+            return;
+    }
+    return myArray;
+}
 
 
 
@@ -152,7 +151,23 @@ function CheckWeight() {
     }
     return tempBicycle;
 }
+//snack-2
+function SoccerData() {
+    const fragment = document.createDocumentFragment();//create a var temp to store the p ele
+    let counter = 0;
+    squadre.forEach(element => {
+        arraySquadre2ele.push(element.GetNameFalli()); //refresh and change numbers
+        const pEleCalcio = document.createElement("p");
+        pEleCalcio.style.fontSize = "2em";
 
+        pEleCalcio.innerHTML = `squadra: ${arraySquadre2ele[counter].nome}, falli subiti: ${arraySquadre2ele[counter].falliSubiti}`;
+        
+        fragment.appendChild(pEleCalcio);
+        counter++;
+    });
+    divEleCalcio.appendChild(fragment);
+    console.log(arraySquadre2ele);
+}
 //function utilies
 function GetRandomNum() {
     return Math.floor(Math.random() * 100 + 1);
