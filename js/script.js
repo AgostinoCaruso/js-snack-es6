@@ -47,53 +47,90 @@ const lighBicycle = CheckWeight();
 
 pEleBiciText.innerHTML = `nome: ${lighBicycle.nome}, peso: ${lighBicycle.peso}`;
 divEleBici.appendChild(pEleBiciText);
-//#endregion
+//#endregion Snack-1
 //---------------------------SNACK 2
-const pagnotta={
-    nome:"Pagnotta",
+//#region Snack-2
+const divEleCalcio = document.getElementById("calcio");
+//#region Objects
+const pagnotta = {
+    nome: "Pagnotta",
     puntiFatti: 0,
-    falliSubiti:0,
-    RandomNum(){
+    falliSubiti: 0,
+    RandomNum() {
         this.puntiFatti = GetRandomNum();
         this.falliSubiti = GetRandomNum();
-        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    },
+    GetNameFalli() {
+        this.RandomNum();
+        return { nome: this.nome, falliSubiti: this.falliSubiti };
     }
 };
-const roma={
-    nome:"Roma",
+const roma = {
+    nome: "Roma",
     puntiFatti: 0,
-    falliSubiti:0,
-    RandomNum(){
+    falliSubiti: 0,
+    RandomNum() {
         this.puntiFatti = GetRandomNum();
         this.falliSubiti = GetRandomNum();
-        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    },
+    GetNameFalli() {
+        this.RandomNum();
+        return { nome: this.nome, falliSubiti: this.falliSubiti };
     }
 };
-const lazio={
-    nome:"Lazio",
+const lazio = {
+    nome: "Lazio",
     puntiFatti: 0,
-    falliSubiti:0,
-    RandomNum(){
+    falliSubiti: 0,
+    RandomNum() {
         this.puntiFatti = GetRandomNum();
         this.falliSubiti = GetRandomNum();
-        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    },
+    GetNameFalli() {
+        this.RandomNum();
+        return { nome: this.nome, falliSubiti: this.falliSubiti };
     }
 };
-const milan={
-    nome:"Milan",
+const milan = {
+    nome: "Milan",
     puntiFatti: 0,
-    falliSubiti:0,
-    RandomNum(){
+    falliSubiti: 0,
+    RandomNum() {
         this.puntiFatti = GetRandomNum();
         this.falliSubiti = GetRandomNum();
-        console.log(this.puntiFatti+ " | "+ this.falliSubiti);
+    },
+    GetNameFalli() {
+        this.RandomNum();
+        return { nome: this.nome, falliSubiti: this.falliSubiti };
     }
 };
+//#endregion Objects
 
-const squadre=[pagnotta, roma, lazio, milan];
+const squadre = [pagnotta, roma, lazio, milan];
+const arraySquadre2ele = [];
 
-pagnotta.RandomNum();
+SoccerData();
 
+function SoccerData() {
+    const fragment = document.createDocumentFragment();//create a var temp to store the p ele
+    let counter = 0;
+    squadre.forEach(element => {
+        arraySquadre2ele.push(element.GetNameFalli()); //refresh and change numbers
+        const pEleCalcio = document.createElement("p");
+        pEleCalcio.style.fontSize = "2em";
+
+        pEleCalcio.innerHTML = `squadra: ${arraySquadre2ele[counter].nome}, falli subiti: ${arraySquadre2ele[counter].falliSubiti}`;
+        
+        fragment.appendChild(pEleCalcio);
+        counter++;
+    });
+    divEleCalcio.appendChild(fragment);
+    console.log(arraySquadre2ele);
+}
+
+
+
+//#endregion Snack-2
 
 
 
@@ -117,6 +154,6 @@ function CheckWeight() {
 }
 
 //function utilies
-function GetRandomNum(){
-    return Math.floor(Math.random() * 100 +1);
+function GetRandomNum() {
+    return Math.floor(Math.random() * 100 + 1);
 }
