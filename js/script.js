@@ -49,9 +49,28 @@ pEleBiciText.innerHTML = `nome: ${lighBicycle.nome}, peso: ${lighBicycle.peso}`;
 divEleBici.appendChild(pEleBiciText);
 //#endregion
 //---------------------------SNACK 2
+const pagnotta={
+    nome:"Pagnotta",
+    puntiFatti: 0,
+    falliSubiti:0,
+};
+const roma={
+    nome:"Roma",
+    puntiFatti: 0,
+    falliSubiti:0,
+};
+const lazio={
+    nome:"Lazio",
+    puntiFatti: 0,
+    falliSubiti:0,
+};
+const milan={
+    nome:"Milan",
+    puntiFatti: 0,
+    falliSubiti:0,
+};
 
-
-
+const squadre=[pagnotta, roma, lazio, milan];
 
 
 
